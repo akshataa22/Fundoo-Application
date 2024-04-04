@@ -1,0 +1,717 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  color: #000;
+}
+
+.header {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  padding: 10px;
+  height: 70px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+.user-circle {
+display: flex;
+justify-content: center;
+align-items: center;
+position: fixed;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background-color: rgb(217, 57, 214);
+color: white;
+font-size: 25px;
+cursor: pointer;
+margin-left: 1450px;
+line-height: 20px;
+}
+
+.user-circle span {
+  line-height: normal;
+  margin-top: -1px;
+}
+
+/* Styles for user card */
+.user-card {
+position: absolute;
+top: 60px;
+right: 20px;
+background-color: #ededed;
+border: 1px solid #007bff;
+border-radius: 5px;
+padding: 10px;
+z-index: 100;
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+height: 130px;
+}
+
+.user-info {
+  margin-bottom: 10px; /* Add some spacing between username and sign out */
+
+}
+.sign-out p {
+  color: #007bff; /* Add color to the sign-out text */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.sign-out p:hover {
+  text-decoration: underline; /* Underline text on hover */
+}
+
+
+.user-card p {
+margin: 7px 0 15px 0;
+}
+
+.user-card button {
+padding: 10px;
+background-color: #007bff;
+color: #ffffff;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.profile-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the entire circle without stretching */
+  border-radius: 50%;
+}
+
+/* Style for the "Add Profile Picture" button */
+.profile-button-container {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.profile-picture-label {
+  cursor: pointer;
+}
+
+.logo {
+height: 50px; 
+margin-right: 10px;
+transform: rotate(0deg);
+}
+
+.logo-container {
+position: fixed;
+display: flex;
+align-items: center;
+margin-left: 10px;
+}
+
+.logo-text {
+font-size: 24px; /* Adjust font size as needed */
+font-weight: 400;
+color: #444444;
+}
+
+.user {
+font-size: 20px; /* Adjust font size as needed */
+font-weight: bold;
+color: gray;
+}
+
+.main {
+  margin-top: 10px;
+  height: calc(100vh - 74px); 
+}
+
+.sidebar {
+  flex: 0 0 200px; 
+  position: fixed;
+  margin-top: 67px;
+
+}
+
+.sidebar-options {
+  display: flex;
+  flex-direction: column;
+  font-size: medium;
+  width: 270px;
+  list-style-type: none;
+}
+
+.sidebar-options > div {
+  display: flex;
+  align-items: center; 
+}
+
+.sidebar-options div a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  height: 45px;
+  width: 100%;
+}
+
+.sidebar-options div a:hover {
+  background-color: lightgrey;
+}
+
+.sidebar-options div.active a {
+  background-color:#f8e5ab;
+}
+
+
+.option-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 20px;
+}
+
+.button-container {
+  display: flex;
+  position: absolute; 
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  border-radius: 100%;
+}
+
+.button-container button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 100%;
+}
+
+.button-container button:hover{
+  color: #000;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 60%;
+  background-repeat: no-repeat;
+}
+
+.button-container button svg {
+color: #555;
+}
+
+.pin-icon {
+  position: absolute; /* Changed to absolute for positioning relative to the note title */
+  top: 1; /* Align to the top of the note title */
+  right: 15px;
+  color: #433c3c; /* Adjust color as needed */
+  cursor: pointer;
+}
+
+.pin-icon:hover {
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.layout-toggle {
+  margin: 5px 20px 0 20px;
+  height: 30px;
+  color: #555;
+  cursor: pointer; 
+}
+
+.layout-toggle:hover {
+  border-radius: 50%;
+  color: #000;  
+  transform: scale(1.2);
+}
+
+.header-tags {
+  cursor:pointer;
+  color:#555;
+}
+
+.header-tags:hover {
+  color: #000;
+  border-radius: 50%;
+  transform: scale(1.2);
+}
+
+
+
+.tooltip {
+position: absolute;
+top: 0;
+right: 0;
+visibility: hidden;
+background-color: black; /* Default background color */
+color: white; /* Default text color */
+padding: 5px;
+border-radius: 6px;
+text-align: center;
+z-index: 1;
+transition: visibility 0s, opacity 0.5s, transform 0.5s; /* Add transition effect */
+opacity: 0; /* Hide tooltip initially */
+pointer-events: none; 
+}
+
+.tooltip-text {
+font-size: 12px;
+}
+
+.card-title-container:hover .tooltip {
+visibility: visible;
+}
+
+.button-container button:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.notes-container {
+flex-wrap: wrap; 
+align-items: flex-start;
+justify-content: flex-start; 
+margin-bottom: 10px;
+margin-left: 320px;
+pointer-events: auto;
+}
+
+.note-title {
+width: calc(100% - 20px);
+border: none;
+font-weight: bold;
+font-size: 16px;
+margin-bottom: 5px;
+position: absolute;
+}
+
+.note-description {
+border: none;
+resize: none;
+overflow: hidden;
+}
+
+.note-card {
+width: 260px;
+border-radius: 8px;
+position: relative;
+flex: 0 0 auto;
+margin: 0 12px 20px 0;
+}
+
+.note-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative; 
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  padding: 10px; 
+}
+
+.card-title {
+  font-size: 16px;
+  margin-bottom: 10px;
+  outline: none;
+  flex-grow: 1;
+  font-weight: 600;
+}
+
+.card-text {
+  font-size: 16px;
+  margin-bottom: 10px;
+  outline: none;
+  flex-grow: 1;
+  overflow: auto;
+  min-height: 50px;
+}
+
+.add-note {
+background-color: #fff;
+box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+transition: box-shadow 0.30s ease;
+margin:80px 450px 20px 300px;
+width: 600px;
+}
+
+.add-note:hover {
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-note input[type="text"] {
+width: 95%;
+padding: 9px;
+margin-bottom: 10px;
+margin-left: 15px;
+border: none;
+border-bottom: 1px solid #ccc;
+font-size: 16px;
+outline: none;
+font-family:Arial, Helvetica, sans-serif;
+font-weight: 100;
+}
+
+.add-note textarea {
+width: 95%;
+padding: 8px;
+margin-bottom: 10px;
+margin-left: 15px;
+border: none;
+font-size: 16px;
+outline: none;
+font-family:"Google Sans", Roboto, Arial, sans-serif;
+font-weight: 100;
+min-height: 110px;
+resize: none;
+}
+
+.add-button {
+background-color: #5f6368;
+color: white;
+padding: 8px 16px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+background-color: #4d5054;
+}
+
+.add-note-icon {
+width: 24px;
+height: 24px;
+cursor: pointer;
+transition: transform 0.3s ease;
+}
+
+.add-note-icon:hover {
+transform: rotate(45deg);
+}
+
+.take-note {
+color: #5f6368;
+cursor: pointer;
+font-size: 13px;
+padding: 8px;
+border-radius: 8px;
+text-align: left;
+font-size: large;
+transition: background-color 0.3s ease;
+box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+}
+
+.take-note:hover {
+background-color: #f1f3f4;
+}
+
+.add-note-icon {
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  bottom: 60px;
+  right: 90px;
+  cursor: pointer;
+  z-index: 1000; 
+}
+
+/* Search container */
+.search-container {
+display: flex;
+position: fixed;
+margin-left: 250px;
+align-items: center;
+}
+
+.search-container .search-input {
+  color: #000;
+}
+
+/* Search input */
+.search-input {
+padding: 14px;
+border: 1px solid #ccc;
+outline: none;
+width: 700px;
+height: 45px; 
+border-radius: 10px;
+box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+margin-right: 8px;
+font-size: medium;
+background-color: rgba(204, 204, 204, 0.2);
+}
+
+/* Search icon */
+.search-icon {
+width: 24px; /* Adjust the size as needed */
+  height: 24px;
+  cursor: pointer;
+margin-right: 400px;
+}
+
+.logout-button {
+  color: #555;
+  padding: 10px;
+  margin: 24px 0 20px -8px;
+  text-decoration: none;
+  border-radius: 10%;
+  font-weight: 500;
+}
+
+.profile-button-container {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.archived-card-text {
+  margin-bottom: 10px;
+}
+
+.archived-notes .trashed-notes {
+  margin-left: 20px;
+}
+
+.header-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.pinned-header {
+  margin-top: 20px;
+  font-size: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.unpinned-header {
+  margin-top: 20px;
+  font-size: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.pinned-notes-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+
+.unpinned-notes-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+
+.note-section-header {
+  margin-bottom: 15px;
+  font-size: 10px;
+  font-weight: bold;
+  color: #333;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.add-note-button {
+  background: none;
+  border: none;
+  margin-left: 90%;
+  margin-bottom: 15px;
+  margin-right: 13px;
+  cursor: pointer;
+  font-size: 15px; /* Adjust font size as needed */
+  font-weight: 500;
+  color: #444444;
+}
+
+.add-note-button:hover {
+  background: #ccc;
+  padding: 8px;
+  border-radius: 15%;
+}
+
+/* Reminder tab */
+.reminder-tab {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  margin-bottom: 10px;
+display: flex;
+align-items: center;
+margin-right: 5px;
+width: 67%;
+height: 28px;
+}
+
+.reminder-tab span {
+  margin-left: 4px;
+}
+
+.reminder-tab svg {
+  margin-left: 2px;
+}
+
+.reminder-tab button {
+  border: none;
+  margin-left: 3px;
+  border-radius: 50px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.reminder-tab button:hover {
+  background-color: #e9ecef93;
+  color: black;
+}
+
+.reminder-tab button svg {
+ padding-top: 4px;
+}
+
+.reminder-tab:hover {
+  background-color: rgba(73, 72, 72, 0.384);
+}
+
+.ReminderCard {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  position: absolute;
+  z-index: 10000;
+  width: 260px;
+  margin-top: 33px;
+  margin-left: 27px;
+}
+
+.reminder-title {
+  font-size: 16px;
+}
+
+.reminder-inputs {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+
+}
+
+.reminder-input-group {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.reminder-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 12px;
+  text-transform:uppercase;
+}
+
+.color-options {
+  position: absolute;
+  z-index: 100;
+  margin-left: 15px;
+  width: 300px;
+  margin-top: -10px;
+}
+
+.ColorCard{
+  width: auto; /* Adjust the width dynamically based on content */
+  max-width: 300px; /* Set a maximum width to prevent excessive stretching */
+  height: auto;
+  background-color: white;
+}
+
+.ColorCardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px; /* Adjust the gap between color options */
+  align-items: center; /* Align items vertically center */
+  height: 55px;
+}
+
+.color-option {
+  width: 23px;
+  height: 23px;
+  border: 1px solid gray;
+  cursor: pointer;
+  border-radius: 50%;
+  border-radius: 50%;
+  margin-bottom:  5px;     
+}
+
+.color-option:hover {
+border-color: black;
+}
+
+.label {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 25px; 
+  color: black;
+  font-weight: 600;
+  font-size: 12px;
+  margin-bottom: 10px;
+  display: flex; 
+  align-items: center; 
+  margin-right: 5px;
+  width: 25%;
+  height: 25px;
+  left: 0%;
+  position: relative; 
+}
+
+.label span{
+  margin-left: 5px;
+}
+
+.label-button {
+  display: none;
+  background-color: transparent;
+  margin-left: 8px;
+  border: none;
+  margin-top: 5px; 
+  cursor: pointer;
+  color: #333;
+  position: absolute;
+  right: 0px;
+}
+
+.label:hover .label-button {
+  display: inline-block; /* Shows on hover */
+}
+
+.label-button:hover{
+  background-color: rgba(11, 9, 9, 0.384);
+  border-radius: 50%;
+  padding: 3px;
+  color: #000;
+}
+
+.trash-icon {
+  position: absolute;
+  top: 22px;
+  left: 23px;
+  width: 1px;
+  height: 1px;
+  background: #fff;
+  cursor: pointer;
+  padding: 0px;
+}

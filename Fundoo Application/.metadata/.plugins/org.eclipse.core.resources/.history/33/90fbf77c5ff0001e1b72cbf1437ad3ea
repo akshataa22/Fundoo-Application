@@ -1,0 +1,58 @@
+package com.bridgelabz.fundoo.services;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bridgelabz.fundoo.model.Note;
+import com.bridgelabz.fundoo.model.Reminder;
+import com.bridgelabz.fundoo.repository.NoteRepository;
+import com.bridgelabz.fundoo.repository.ReminderRepository;
+
+@Service
+public class ReminderService {
+    @Autowired
+    private ReminderRepository reminderRepository;
+
+    @Autowired
+    private NoteRepository noteRepository;
+
+    public Reminder setReminder(int id, String reminderDateTime) {
+        // Retrieve the note by ID
+        Note note = noteRepository.findById(id).orElseThrow(() -> new RuntimeException("Note not found"));
+
+        // Parse the string to LocalDateTime
+        LocalDateTime reminder = LocalDateTime.parse(reminderDateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
+        // Create the Reminder object
+        Reminder reminderObject = new Reminder(note, reminder);
+
+        // Save the Reminder object
+        return reminderRepository.save(reminderObject);
+    }
+
+    public Reminder updateReminder(int reminderId, Reminder updatedReminder) {
+        Reminder existingReminder = reminderRepository.findById(reminderId)
+                .orElseThrow(() -> new RuntimeException("Reminder not found"));
+
+        // Update reminder properties
+        existingReminder.setReminder(updatedReminder.getReminder());
+        return reminderRepository.save(existingReminder);
+    }
+
+    public void deleteReminder(int reminderId) {
+        reminderRepository.deleteById(reminderId);
+    }
+
+    public List<Reminder> getAllReminders() {
+        return reminderRepository.findAll();
+    }
+
+    public Reminder getReminderById(int reminderId) {
+        return reminderRepository.findById(reminderId)
+                .orElseThrow(() -> new RuntimeException("Reminder not found"));
+    }
+}
