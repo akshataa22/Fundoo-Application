@@ -1,14 +1,17 @@
 .register-form {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 40%;
-  margin: 90px auto 0 auto;
+  margin: auto;
   padding: 20px;
   background-color: #b9b2a3b7;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   transition: transform 0.3s ease;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 600px;
 }
 
 .input-container-register {
@@ -25,7 +28,7 @@
 
 .sub-label {
   font-size: 14px;
-  margin-top: 5px;
+  margin-bottom: 5px;
   margin-left: 3px;
 }
 
@@ -46,6 +49,29 @@
 }
 
 .input-field-register {
+  height: 26px;
+  padding: 20px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+  font-size: 15px;
+}
+
+.input-field-register-right-side {
+  height: 26px;
+  padding: 20px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+  font-size: 15px;
+}
+
+.input-field-register-date{
+  width: 154%;
+  text-transform: uppercase;
+  font-family: calibri;
   height: 26px;
   padding: 20px;
   margin-bottom: 5px;
@@ -105,7 +131,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: -1; /* Ensure the pseudo-element is behind other content */
+  z-index: -1; 
 }
 
 .Toastify__toast-container {
@@ -116,4 +142,249 @@
     width: 350px;
     font-size: '16px';
     font-family: 'Arial, sans-serif';
+}
+
+.signin{
+  margin-left: 150px;
+  color: black;
+  margin-right:100px; 
+}
+
+/* Original CSS styles... */
+
+/* Media queries for responsiveness */
+@media only screen and (max-width: 768px) {
+  .register-form {
+    width: 80%;
+  }
+  .input-row{
+    margin-left: 35px;
+  }
+  
+  .input-container-register p {
+    margin: 10px 0 0 0; 
+    text-align: center;
+  }
+
+  .input-field-register-right-side {
+    margin-left: 35px;
+  }
+
+  .input-field-wrapper {
+    margin-right: 0;
+  }
+
+  .register-button {
+    margin: 20px auto 0 190px; 
+  }
+
+  .image:before {
+    background-size: contain;
+  }
+}
+
+
+@media only screen and (max-width: 320px) {
+  .input-row{
+    margin-left: 0px;
+  }
+  .register-form {
+    width: 90%; 
+    margin: 30px auto 0 auto;
+    height: 600px;
+  }
+  
+  .name {
+    flex-direction: column; 
+  }
+
+  .input-container-register p {
+    display: none;
+  }
+
+  .register-header {
+    font-size: 24px;
+    margin:0 10px 0 0;
+  }
+
+  .input-label {
+    font-size: 20px;
+  }
+
+  .input-field-register {
+    padding: 12px; 
+    font-size: 14px; 
+    height: 40px;
+    width: 120%;
+    margin-bottom: 10px;
+  }
+
+  .input-field-register-right-side {
+    margin-left: 0px;
+    width: 107%;
+  }
+
+  .input-field-register-date{
+    width: 166%;
+  }
+
+  .sub-label {
+    font-size: 12px;
+    display: none;
+  }
+
+  .register-button {
+    padding: 10px 30px;
+    font-size: 12px;
+    margin: 10px 0 0 60px;
+  }
+
+  .signin{
+    margin-left: 0px;
+    color: black;
+    margin-right: 0px; 
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 380px) {
+  .input-row{
+    margin-left: 0;
+  }
+
+  .register-form {
+    width: 90%; 
+    margin: 30px auto 0 auto;
+    height: 600px;
+  }
+  
+  .name {
+    flex-direction: column; 
+  }
+
+  .input-container-register p {
+    display: none;
+  }
+
+  .register-header {
+    font-size: 24px;
+    margin:0 10px 0 0;
+  }
+
+  .input-label {
+    font-size: 20px;
+  }
+
+  .input-field-register {
+    padding: 12px; 
+    font-size: 14px; 
+    height: 40px;
+    width: 140%;
+    margin-bottom: 10px;
+  }
+
+  .input-field-register-right-side {
+    margin-left: 0px;
+    width: 125%;
+  }
+
+  .input-field-register-date{
+    width: 193%;
+  }
+
+  .sub-label {
+    font-size: 12px;
+    display: none;
+  }
+
+  .register-button {
+    padding: 10px 30px;
+    font-size: 12px;
+    margin: 10px 0 0 80px;
+  }
+
+
+  .signin{
+    margin-left: 20px;
+  color: black;
+  margin-right:20px; 
+  }
+}
+
+@media only screen and (min-width: 381px) and (max-width: 480px) {
+  .register-form {
+    width: 90%; 
+    margin: 30px auto 0 auto;
+    height: 600px;
+  }
+  
+  .name {
+    flex-direction: column; 
+  }
+
+  .input-container-register p {
+    display: none;
+  }
+
+  .register-header {
+    font-size: 24px;
+    margin:0 10px 0 0;
+  }
+
+  .input-label {
+    font-size: 20px;
+  }
+
+  .input-field-register {
+    padding: 12px; 
+    font-size: 14px; 
+    height: 40px;
+    width: 140%;
+    margin-bottom: 10px;
+  }
+
+  .input-field-register-right-side {
+    margin-left: 0px;
+    width: 125%;
+  }
+
+  .input-field-register-date{
+    width: 193%;
+  }
+
+  .sub-label {
+    font-size: 12px;
+    display: none;
+  }
+
+  .register-button {
+    padding: 10px 30px;
+    font-size: 12px;
+    margin: 10px 0 0 110px;
+  }
+
+  .input-row{
+    margin-left: 32px;
+  }
+
+  .signin{
+    margin-left: 55px;
+  color: black;
+  margin-right:20px; 
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .register-form{
+    width: 60%;
+  }
+
+  .input-row{
+    margin-left: 30px;
+  }
+  
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+    .input-row{
+      margin-left: 5px;
+    }
 }

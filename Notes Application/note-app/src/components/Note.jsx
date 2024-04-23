@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import noteService from './../services/notesService';
 import ReminderService from './../services/ReminderService';
 import './../styles/note.css';
+import './../styles/ResponsiveNote.css'
 import { Input, Card, CardBody, CardTitle, CardText, Button } from 'reactstrap';
 import { faThumbtack } from '@fortawesome/free-solid-svg-icons';
 import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
@@ -175,6 +176,13 @@ const Note = (props) => {
     }
   };
   
+  const getCurrentDate = () => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
 
   useEffect(() => {
     // Load selected labels from local storage
@@ -208,47 +216,27 @@ const Note = (props) => {
     try {
       const data = await noteService.fetchNotes(token);
       setNotes(data.filter(note => !note.archive).filter(note => !note.trash));
-      setHasPinnedNotes(data.some(note => note.pinned));
     } catch (error) {
       console.error('Error fetching notes:', error);
     }
   };
 
   const addNote = async () => {
-    // Check if title or description is not empty
     if (newNote.title.trim() !== '' || newNote.description.trim() !== '') {
       try {
-        const newNoteObject = {
-          title: newNote.title,
-          description: newNote.description,
-          color: 'white' // Set default color to white
-        };
-        await noteService.addNote(newNoteObject, token);
+        await noteService.addNote({
+          ...newNote,
+          color: 'white' // Set the default color to white for new notes
+        }, token);
         fetchNotes();
         setNewNote({ title: '', description: '' });
-  
-        // Reset image state for new note
-        setNoteImages(prevNoteImages => {
-          const updatedNoteImages = { ...prevNoteImages };
-          delete updatedNoteImages[notes.length + 1]; // Assuming the new note ID is the next available number
-          return updatedNoteImages;
-        });
-  
-        // Clear image data associated with new note from local storage
-        const localStorageImages = JSON.parse(localStorage.getItem('noteImages')) || {};
-        delete localStorageImages[notes.length + 1]; // Assuming the new note ID is the next available number
-        localStorage.setItem('noteImages', JSON.stringify(localStorageImages));
-  
-        // Log the updated state and local storage to verify the reset
-        console.log("Note Images State:", noteImages);
-        console.log("Local Storage (noteImages):", localStorageImages);
+        setIsAddNoteOpen(false); // Close the add note section after adding the note
       } catch (error) {
         console.error('Error adding note:', error);
       }
     }
   };
-  
-  
+
   const updateNote = async (id, updatedNote) => {
     try {
       await noteService.updateNote(id, updatedNote, token);

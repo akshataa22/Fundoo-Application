@@ -93,7 +93,7 @@ const Register = () => {
   </div>
   <div className="input-field-wrapper">
     <input
-      className="input-field-register"
+      className="input-field-register-right-side"
       type="text"
       id="lastName"
       name="lastName"
@@ -111,8 +111,7 @@ const Register = () => {
       Date of Birth
     </label>
     <input
-    style={{width:'137%',textTransform:'uppercase',fontFamily:'calibri'}}
-      className="input-field-register"
+      className="input-field-register-date"
       type="date"
       id="dateOfBirth"
       name="dateOfBirth"
@@ -156,7 +155,7 @@ const Register = () => {
                 /><div className="sub-label">Password</div></div>
                 <div className="input-field-wrapper">
                 <input
-                  className="input-field-register"
+                  className="input-field-register-right-side"
                   type="password"
                   id="confirmPassword"
                   name="confirmPassword"
@@ -167,7 +166,7 @@ const Register = () => {
                   autoComplete="off"
                 /><div className="sub-label">Confirm Password</div></div></div>
               </div>
-              <Link style={{ marginLeft: 150, color: "ActiveBorder",marginRight:100 }} to="/">
+              <Link className='signin' to="/">
                 Already have an account? Sign in
               </Link>
               <button className="register-button" onClick={handleSubmit} type="submit">

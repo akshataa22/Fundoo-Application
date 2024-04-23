@@ -88,7 +88,7 @@ const Login = () => {
         />
       </FormGroup>
         <div style={{marginBottom:10}}>
-        <Link style={{fontSize: 17, marginRight: 21, color: 'ActiveBorder', paddingRight: 35, paddingLeft: 35}} to="/register">Don't have an account? Sign up</Link>
+        <Link className="button-signin" to="/register">Don't have an account? Sign up</Link>
         </div>
       <Button className="login-button" type="submit">LOGIN</Button>
     </Form>

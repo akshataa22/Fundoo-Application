@@ -1,0 +1,102 @@
+@media only screen and (max-width: 768px) {
+    .search-input {
+        width: 280px;
+    }
+    .user-circle{
+        margin-left: 1000px;
+        width: 35px;
+        height: 35px;
+        margin-top: 5px;
+        font-size: 20px;
+    }
+
+    .add-note{
+        width: 400px;
+    }
+    .sidebar-options{
+        font-size: larger;
+        width: 210px;
+    }  
+    .notes-container{
+        width: 90%;
+        margin-left: 250px;
+    }
+    .unpinned-notes-container{
+        width: 113%;
+    }
+}
+
+@media only screen and (min-width:769px) and (max-width: 1024px) {
+    .search-input {
+        width: 530px;
+    }
+    .user-circle{
+        margin-left: 1310px;
+    }
+    .add-note{
+        width: 400px;
+    }
+    .sidebar-options{
+        font-size: larger;
+    }  
+    .notes-container{
+        width: 90%;
+    }
+    .unpinned-notes-container{
+        width: 113%;
+    }
+}
+
+@media only screen and (min-width: 376px)  and (max-width: 480px) {
+    .search-input {
+        width: 180px;
+    }
+    .add-note{
+        box-shadow: none;
+    }
+    .user-circle{
+        margin-left: 870px;
+    }
+    .take-note{
+        width: 300px;
+    }
+    .notes-container{
+        width: 109%;
+    }
+    .unpinned-notes-container{
+        width: 113%;
+    }
+    .card-title{
+        font-size: 24px;
+    }
+    .card-text{
+        font-size: 24px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .notes-container{
+        width: 144%;
+    }
+    .search-input {
+        width: 200px;
+    }
+    .user-circle{
+        margin-left: 890px;
+    }
+    .take-note{
+        width: 300px;
+    }
+    .add-note{
+        box-shadow: none;
+    }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1440px){
+    .search-input {
+        width: 550px;
+    }
+    .user-circle{
+        margin-left: 1360px;
+    }
+}

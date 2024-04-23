@@ -53,7 +53,7 @@ height: 130px;
 }
 
 .user-info {
-  margin-bottom: 10px; /* Add some spacing between username and sign out */
+  border-bottom:2px solid #d3d3d3;
 
 }
 .sign-out p {
@@ -67,7 +67,7 @@ height: 130px;
 
 
 .user-card p {
-margin: 7px 0 15px 0;
+margin: 7px 0 8px 0;
 }
 
 .user-card button {
@@ -88,12 +88,28 @@ cursor: pointer;
 
 /* Style for the "Add Profile Picture" button */
 .profile-button-container {
-  margin-bottom: 10px;
   margin-top: 10px;
+  align-content: center;
+  text-align: center;
+  font-size: 15px;
+}
+
+.profile-button-container span{
+  margin-bottom: 10px;
 }
 
 .profile-picture-label {
   cursor: pointer;
+  margin-bottom: 10px;
+  color: #494949;
+  font-weight: 500;
+}
+
+.sign-out{
+  height: 40px;
+  text-align: center;
+  align-content: center;
+  font-size: 15px;
 }
 
 .logo {
@@ -123,7 +139,6 @@ color: gray;
 
 .main {
   margin-top: 10px;
-  height: calc(100vh - 74px); 
 }
 
 .sidebar {
@@ -167,6 +182,8 @@ color: gray;
 
 
 .option-icon {
+  color: #555;
+  margin-left: 15px;
   width: 24px;
   height: 24px;
   margin-right: 20px;
@@ -340,7 +357,6 @@ margin: 0 12px 20px 0;
 }
 
 .add-note {
-background-color: #fff;
 box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
 border-radius: 8px;
 transition: box-shadow 0.30s ease;
@@ -465,17 +481,14 @@ margin-right: 400px;
 }
 
 .logout-button {
-  color: #555;
-  padding: 10px;
-  margin: 24px 0 20px -8px;
-  text-decoration: none;
-  border-radius: 10%;
-  font-weight: 500;
+  border-top:2px solid #d3d3d3;
+    padding: 10px;  
+    font-weight: 500;
+    margin-top: 14px;
 }
 
-.profile-button-container {
-  margin-bottom: 10px;
-  cursor: pointer;
+.logout-button svg{
+  margin-left: 60px;
 }
 
 .archived-card-text {
@@ -554,7 +567,7 @@ margin-right: 400px;
 display: flex;
 align-items: center;
 margin-right: 5px;
-width: 67%;
+width: 70%;
 height: 28px;
 }
 

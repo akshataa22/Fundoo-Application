@@ -8,7 +8,7 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { GridView as GridViewIcon } from '@mui/icons-material';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import { Button } from "reactstrap";
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const Header = ({ layoutMode, toggleLayoutMode , handleSearch}) => {
   const [showUserCard, setShowUserCard] = useState(false);
@@ -100,7 +100,6 @@ const Header = ({ layoutMode, toggleLayoutMode , handleSearch}) => {
         {profilePicture ? (
         <>
          <img src={profilePicture} alt="Profile" className="profile-picture" />
-         <Button className="trash-icon" outline size="sm" onClick={removeProfilePicture}><HighlightOffIcon fontSize="small" /></Button>
         </>
         ) : (firstInitial)}
       </div>
@@ -110,13 +109,29 @@ const Header = ({ layoutMode, toggleLayoutMode , handleSearch}) => {
           <p>{username}</p>
           </div>
           <div className="profile-button-container">
-            <input  className="pic" type="file" accept="image/*" id="profile-picture-input" onChange={handleImageUpload} style={{ display: 'none' }} />
-            <label htmlFor="profile-picture-input" className="profile-picture-label">
-              Add Profile Picture
-            </label>
+          {profilePicture ? (
+              <label htmlFor="profile-picture-input" className="profile-picture-label" onClick={removeProfilePicture}>
+                Remove Profile Picture
+              </label>
+            ) : (
+              <>
+                <input
+                  className="pic"
+                  type="file"
+                  accept="image/*"
+                  id="profile-picture-input"
+                  onChange={handleImageUpload}
+                  style={{ display: 'none' }}
+                />
+                <label htmlFor="profile-picture-input" className="profile-picture-label">
+                  Add Profile Picture
+                </label>
+              </>
+            )}
           </div>
           <div className="sign-out">
-            <Link className="logout-button" to="/">
+            <Link className="logout-button" to="/" style={{ color: "#494949", textDecoration: "none", display: "flex", alignContent: "center"}}>
+            <LogoutIcon style={{ marginRight: 10 }} />
               Logout
             </Link>
           </div>
