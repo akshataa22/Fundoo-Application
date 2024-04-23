@@ -479,7 +479,7 @@ const Note = (props) => {
         <div className="reminder-inputs">
           <div className="reminder-input-group">
             <label htmlFor="dateOfReminder">Select Date</label>
-            <input type="date" id={`dateOfReminder-${note.id}`} name={`dateOfReminder-${note.id}`} className="reminder-input" />
+            <input type="date" id={`dateOfReminder-${note.id}`} name={`dateOfReminder-${note.id}`} className="reminder-input" min={getCurrentDate()}/>
           </div>
         <div className="reminder-input-group">
           <label htmlFor="remindertime">Select Time</label>
@@ -617,7 +617,7 @@ const Note = (props) => {
         <div className="reminder-inputs">
           <div className="reminder-input-group">
             <label htmlFor="dateOfReminder">Select Date</label>
-            <input type="date" id={`dateOfReminder-${note.id}`} name={`dateOfReminder-${note.id}`} className="reminder-input" />
+            <input type="date" id={`dateOfReminder-${note.id}`} name={`dateOfReminder-${note.id}`} className="reminder-input" min={getCurrentDate()}/>
           </div>
         <div className="reminder-input-group">
           <label htmlFor="remindertime">Select Time</label>
